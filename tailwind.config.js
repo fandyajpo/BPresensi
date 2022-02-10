@@ -40,11 +40,7 @@ module.exports = {
     colors: {
       ...colors,
       custom: {
-        pin: "#F9F9FA",
-        firstBlue: "#04A7EC",
-        secondBlue: "#0C66CF",
-        swipe: "#828282",
-        bgButton: "#F2F8FF",
+        sky: "#cfdfff",
         red: "#FC4041",
         yellow: "#F3B33D",
         yellowDark: "#FDB249",
@@ -57,6 +53,7 @@ module.exports = {
         black: "#414141",
         cream: "#FFFCF7",
         bg: "#F4F7FA",
+        bgButton: "#F2F8FF",
         bgYellow: "#F7E5C2",
         bgDarkYellow: "#EBA038",
         bgGray: "#C4C4C4",
@@ -102,7 +99,6 @@ module.exports = {
       "5xl": "3rem",
       "6xl": "4rem",
       "7xl": "5rem",
-      343: "343px",
     },
     extend: {
       backgroundImage: {

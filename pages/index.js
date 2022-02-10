@@ -3,7 +3,7 @@ export default function Index() {}
 export async function getServerSideProps() {
   return {
     redirect: {
-      destination: "/login",
+      destination: "/auth/home",
       permanent: false,
     },
   };
