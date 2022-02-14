@@ -154,7 +154,6 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Poppins", ...defaultTheme.fontFamily.sans],
-        // poppins: ['Poppins-Bold']
       },
       fontSize: {
         footer: "7px",

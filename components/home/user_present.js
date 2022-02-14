@@ -4,7 +4,7 @@ const User_present = () => {
       <div className="flex items-center justify-between pt-2 pb-4">
         <div>
           <p className="font-black text-md">Absensi</p>
-          <p className="text-xs text-custom-textGray">Aktivitasmu hari ini</p>
+          <p className="text-xs text-custom-blue">Aktivitasmu hari ini</p>
         </div>
         <div>
           <p className="text-sm font-bold text-custom-blue">

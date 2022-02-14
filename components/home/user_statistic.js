@@ -4,9 +4,7 @@ const User_statistic = () => {
       <div className="flex items-center justify-between pt-2 pb-4">
         <div>
           <p className="font-black text-md">Statistik</p>
-          <p className="text-xs text-custom-textGray">
-            Yok lihat statistik loe
-          </p>
+          <p className="text-xs text-custom-blue">Yok lihat statistik loe</p>
         </div>
         <div>
           <button>

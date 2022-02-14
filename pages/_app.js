@@ -5,7 +5,9 @@ import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
 import { useState } from "react";
+
 //CONTEXT
+import { PresenceType } from "context/presenceType";
 
 import NProgress from "nprogress";
 import { SWRConfig } from "swr";
@@ -22,6 +24,16 @@ export function reportWebVitals(metric) {
 function MyApp({ Component, pageProps }) {
   const Layout = Component.layout || (({ children }) => <>{children}</>);
 
+  //CONTEXT STAT
+  const [presence, setPresence] = useState("");
+
+  const value = {
+    //SET DATA
+    setPresence: setPresence,
+    //DATA
+    presence: presence,
+  };
+
   return (
     <>
       <Head>
@@ -36,11 +48,7 @@ function MyApp({ Component, pageProps }) {
           href="https://unpkg.com/nprogress@0.2.0/nprogress.css"
         />
         <link
-          href="https://fonts.googleapis.com/css?family=Poppins"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+          href="https://fonts.googleapis.com/css?family=Poppins:wght@500&display=swap"
           rel="stylesheet"
         />
       </Head>
@@ -53,9 +61,11 @@ function MyApp({ Component, pageProps }) {
           revalidateOnReconnect: false,
         }}
       >
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <PresenceType.Provider value={value}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </PresenceType.Provider>
       </SWRConfig>
     </>
   );
