@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { PresenceType } from "context/presenceType";
 import { useRouter } from "next/router";
 
-const User_category = () => {
+const User_category = ({ open }) => {
   const Presence = useContext(PresenceType);
 
   const router = useRouter();
@@ -83,7 +83,10 @@ const User_category = () => {
           <div className="bg-teal-500 h-10 w-10 rounded-full"></div>
           <p className="text-1xs">Kembali Kerja</p>
         </button>
-        <button className="w-20 h-20 flex flex-col justify-center items-center">
+        <button
+          className="w-20 h-20 flex flex-col justify-center items-center"
+          onClick={open}
+        >
           <div className="bg-custom-blue h-10 w-10 rounded-full"></div>
           <p className="text-1xs">Lainnnya</p>
         </button>

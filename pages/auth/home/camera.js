@@ -66,12 +66,12 @@ const Camera = () => {
       </div>
       <div className="bg-black w-full h-screen"></div>
       <div className="bg-opacity-30 bg-custom-bg backdrop-filter backdrop-blur-2xl fixed bottom-0 w-full h-24 z-10">
-        <button
-          onClick={() => router.push("capture", "capture")}
-          className="w-full flex flex-row items-center justify-center p-4 h-full"
-        >
-          <div className="bg-white w-14 h-14 rounded-full" />
-        </button>
+        <div className="w-full flex flex-row items-center justify-center p-4 h-full">
+          <button
+            onClick={() => router.push("capture", "capture")}
+            className="bg-white w-14 h-14 rounded-full"
+          />
+        </div>
       </div>
     </div>
   );

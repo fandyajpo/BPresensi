@@ -26,7 +26,10 @@ const Navbar = () => {
           <div className="w-8 h-8 bg-blue-500 rounded-md"></div>
           <p className="text-1xs">Riwayat</p>
         </button>
-        <button className="flex flex-col items-center">
+        <button
+          className="flex flex-col items-center"
+          onClick={() => router.push("/auth/rekap", "/auth/rekap")}
+        >
           <div className="w-8 h-8 bg-blue-500 rounded-md"></div>
           <p className="text-1xs">Rekap</p>
         </button>
