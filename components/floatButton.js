@@ -25,7 +25,13 @@ const FloatButton = ({ floatButton, setFloatButton }) => {
   return (
     <>
       <animated.div style={first_button} className="fixed ml-2">
-        <button className="bg-custom-green rounded-full w-10 h-10 flex items-center justify-center">
+        <button
+          className="bg-custom-blue rounded-full w-10 h-10 flex items-center justify-center"
+          onClick={() => {
+            alert("Tada");
+            setFloatButton(false);
+          }}
+        >
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -45,27 +51,39 @@ const FloatButton = ({ floatButton, setFloatButton }) => {
         </button>
       </animated.div>
       <animated.div style={second_button} className="fixed ml-2">
-        <button className="bg-custom-green rounded-full w-10 h-10 flex items-center justify-center">
+        <button
+          className="bg-custom-blue rounded-full w-10 h-10 flex items-center justify-center"
+          onClick={() => setFloatButton(false)}
+        >
           <div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="white"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            <label>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="white"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+              <input
+                type={"date"}
+                className="absolute -z-10 w-0 h-0 bg-transparent border-none border-transparent "
               />
-            </svg>
+            </label>
           </div>
         </button>
       </animated.div>
       <animated.div style={third_button} className="fixed ml-2">
-        <button className="bg-custom-green rounded-full w-10 h-10 flex items-center justify-center">
+        <button
+          className="bg-custom-blue rounded-full w-10 h-10 flex items-center justify-center"
+          onClick={() => setFloatButton(false)}
+        >
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +104,7 @@ const FloatButton = ({ floatButton, setFloatButton }) => {
       </animated.div>
       <div className="relative">
         <button
-          className="fixed bg-custom-green rounded-full w-14 h-14 flex items-center justify-center"
+          className="fixed bg-custom-blue rounded-full w-14 h-14 flex items-center justify-center"
           onClick={() => setFloatButton(!floatButton)}
         >
           <div>

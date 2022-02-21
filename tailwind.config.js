@@ -40,6 +40,11 @@ module.exports = {
     colors: {
       ...colors,
       custom: {
+        cream: "#F8EFE4",
+        pewter: "#DBF5F0",
+        yellower: "#FAD02C",
+        jetBlack: "#282120",
+        //DIVIDE
         sky: "#cfdfff",
         red: "#FC4041",
         yellow: "#F3B33D",
@@ -70,7 +75,7 @@ module.exports = {
         btnRed: "#FD797A",
         btnDarkGray: "#646464",
         btnBlue: "#4391EF",
-        textGray: "#BCBCBC",
+        textGray: "#9BA6A6",
         textGreen: "#02AF57",
         textDarkGreen: "#118D4E",
         gray: "#BCBCBC",

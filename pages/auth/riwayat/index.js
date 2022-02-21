@@ -15,10 +15,10 @@ const Riwayat = () => {
         onClick={() => setFloatButton(false)}
         className={`${
           floatButton ? "" : "hidden"
-        } bg-custom-black bg-opacity-50 w-full h-full absolute`}
+        } bg-custom-black bg-opacity-50 z-20 w-full h-full absolute`}
       ></div>
       <div className="w-full h-full py-24  px-4">
-        <div className="fixed bottom-40 right-20">
+        <div className="fixed bottom-40 right-20 z-20">
           <FloatButton
             floatButton={floatButton}
             setFloatButton={setFloatButton}

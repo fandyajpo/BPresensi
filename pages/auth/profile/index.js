@@ -2,6 +2,7 @@ import Layout from "components/layout";
 import Header from "components/header";
 import { animated, useSpring } from "react-spring";
 import { useState } from "react";
+import { useRouter } from "next/router";
 const Profile = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const MENU_STYLE = useSpring({
@@ -30,6 +31,7 @@ const Profile = () => {
           </svg>
         }
       />
+
       <div
         onTouchStart={() => setOpenMenu(false)}
         onClick={() => setOpenMenu(false)}
@@ -125,42 +127,173 @@ Profile.layout = Layout;
 export default Profile;
 
 const Menu = () => {
+  const router = useRouter();
   return (
     <div>
-      <div className="bg-white w-full h-screen">
+      <div className="bg-white w-64 h-screen">
         <p className="p-4 text-custom-black font-bold">Absensi</p>
-        <div className="flex flex-col w-full space-y-4 p-4 pr-32">
-          <button className="flex items-center gap-2">
-            <div className="bg-custom-blue w-6 h-6 rounded-full" />
-            <div>Akun</div>
+        <div className="flex flex-col w-full space-y-4 p-4">
+          <button
+            className="w-full flex justify-between items-center"
+            onClick={() => router.push("profile/akun", "profile/akun")}
+          >
+            <div className="flex flex-row items-center gap-2">
+              <div className="bg-custom-blue w-6 h-6 rounded-full" />
+              <div>Akun</div>
+            </div>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
           </button>
-          <button className="flex items-center gap-2">
-            <div className="bg-custom-blue w-6 h-6 rounded-full" />
-            <div>Keamanan</div>
+          <button
+            className="w-full flex justify-between items-center"
+            onClick={() => router.push("profile/keamanan", "profile/keamanan")}
+          >
+            <div className="flex flex-row items-center gap-2">
+              <div className="bg-custom-blue w-6 h-6 rounded-full" />
+              <div>Keamanan</div>
+            </div>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
           </button>
-          <button className="flex w-full items-center gap-2 ">
-            <div className="bg-custom-blue w-6 h-6 rounded-full" />
-            <div>Moda Offline</div>
+          <button className="flex w-full justify-between items-center">
+            <div className="flex flex-row items-center gap-2">
+              <div className="bg-custom-blue w-6 h-6 rounded-full" />
+              <div>Mode Offline</div>
+            </div>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
           </button>
-          <button className="flex items-center gap-2">
-            <div className="bg-custom-blue w-6 h-6 rounded-full" />
-            <div>Pengaturan</div>
+          <button
+            className="w-full flex items-center justify-between"
+            onClick={() =>
+              router.push("profile/pengaturan", "profile/pengaturan")
+            }
+          >
+            <div className="flex flex-row items-center gap-2">
+              <div className="bg-custom-blue w-6 h-6 rounded-full" />
+              <div>Pengaturan</div>
+            </div>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
           </button>
-          <button className="flex items-center gap-2">
-            <div className="bg-custom-blue w-6 h-6 rounded-full" />
-            <div>Tema</div>
+          <button
+            className="flex items-center justify-between w-full"
+            onClick={() =>
+              router.push("profile/notification", "profile/notification")
+            }
+          >
+            <div className="flex flex-row items-center gap-2">
+              <div className="bg-custom-blue w-6 h-6 rounded-full" />
+              <div>Notifikasi</div>
+            </div>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
           </button>
-          <button className="flex items-center gap-2">
-            <div className="bg-custom-blue w-6 h-6 rounded-full" />
-            <div>Notifikasi</div>
+          <button
+            className="flex items-center justify-between w-full"
+            onClick={() => router.push("profile/bantuan", "profile/bantuan")}
+          >
+            <div className="flex flex-row items-center gap-2">
+              <div className="bg-custom-blue w-6 h-6 rounded-full" />
+              <div>Bantuan</div>
+            </div>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
           </button>
-          <button className="flex items-center gap-2">
-            <div className="bg-custom-blue w-6 h-6 rounded-full" />
-            <div>Bantuan</div>
-          </button>
-          <button className="flex items-center gap-2">
-            <div className="bg-custom-blue w-6 h-6 rounded-full" />
-            <div>Tentang</div>
+          <button
+            className="flex items-center justify-between w-full"
+            onClick={() => router.push("profile/tentang", "profile/tentang")}
+          >
+            <div className="flex flex-row items-center justify-between gap-2">
+              <div className="bg-custom-blue w-6 h-6 rounded-full" />
+              <div>Tentang</div>
+            </div>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
           </button>
         </div>
       </div>

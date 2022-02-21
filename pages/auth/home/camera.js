@@ -29,7 +29,12 @@ const Camera = () => {
         } fixed top-0 w-full h-14 backdrop-filter backdrop-blur-2xl z-10`}
       >
         <div className="flex flex-row items-center gap-2 w-full h-full p-4">
-          <button onClick={() => router.back()}>
+          <button
+            onClick={() => {
+              router.back();
+              Presence.setPresence("");
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8"

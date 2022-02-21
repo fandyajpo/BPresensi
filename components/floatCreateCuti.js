@@ -1,0 +1,36 @@
+import { useState } from "react";
+import { useRouter } from "next/router";
+const FloatCreateCuti = ({ selectedIndex }) => {
+  const router = useRouter();
+  return (
+    <>
+      <div className="relative">
+        <button
+          className="bg-custom-blue rounded-full w-14 h-14 flex items-center justify-center"
+          onClick={() =>
+            selectedIndex === 0
+              ? router.push("izin/_izin", "izin/_izin")
+              : selectedIndex === 1 && router.push("izin/_cuti", "izin/_cuti")
+          }
+        >
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="white"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
+    </>
+  );
+};
+
+export default FloatCreateCuti;
