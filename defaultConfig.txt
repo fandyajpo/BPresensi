@@ -1,0 +1,43 @@
+  NProgress.configure({ showSpinner: false });
+  Router.events.on("routeChangeStart", () => NProgress.start());
+  Router.events.on("routeChangeComplete", () => NProgress.done());
+  Router.events.on("routeChangeError", () => NProgress.done());
+
+  const sendToMobile = (file) => {
+    window.ReactNativeWebView.postMessage(JSON.stringify(file));
+  };
+
+
+ useEffect(() => {
+    console.log(TEMPORARY_STATE);
+    TEMPORARY_STATE ? sendToMobile("NO_BACK") : sendToMobile("BACK");
+  }, [TEMPORARY_STATE]);
+
+
+  const fromReactNative = (e) => {
+    try {
+      sendToMobile({ mode: "BACK" });
+      const data = JSON.parse(e.data);
+      if (data.method === "BACK") {
+        // if (Router.pathname === "/auth/profile") {
+        //   sendToMobile({ mode: "EXITAPP" });
+        // }
+        sendToMobile({ mode: "EXITAPP" });
+      } else {
+        TEMPORARY_STATE(false);
+      }
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+
+   useEffect(() => {
+    document.addEventListener("message", fromReactNative);
+    return () => document.removeEventListener("message", fromReactNative);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("message", fromReactNative);
+    return () => window.removeEventListener("message", fromReactNative);
+  }, []);

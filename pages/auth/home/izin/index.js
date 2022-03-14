@@ -1,11 +1,20 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useRef,
+  useContext,
+} from "react";
 import { useSpring, animated } from "react-spring";
 import { useRouter } from "next/router";
 import useEmblaCarousel from "embla-carousel-react";
 import Header from "components/header";
 import FloatCreateCuti from "components/floatCreateCuti";
+import { PresenceType } from "context/presenceType";
 
 const EmblaCarousel = ({ slides }) => {
+  const Presence = useContext(PresenceType);
+
   const router = useRouter();
   const [viewportRef, embla] = useEmblaCarousel({
     skipSnaps: false,
@@ -50,12 +59,18 @@ const EmblaCarousel = ({ slides }) => {
     embla.on("select", onSelect);
   }, [embla, setScrollSnaps, onSelect, selectedIndex]);
 
+  useEffect(() => {
+    console.log("PRESENCE TYPE : ", Presence.presence);
+  }, [Presence.presence]);
   return (
     <>
       <Header
         selectedIndex={selectedIndex}
         leftTitle={"Izin dan Cuti"}
-        leftAction={() => router.back()}
+        leftAction={() => {
+          Presence.setPresence("");
+          router.back();
+        }}
         leftIcon={
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -84,10 +99,22 @@ const EmblaCarousel = ({ slides }) => {
           <div className="w-full">
             {selectedIndex === 0 ? (
               <>
-                <div className="bg-custom-blue rounded-t-md p-2">
+                <div className="bg-custom-blue rounded-t-md p-2 flex justify-between items-center">
                   <p className="text-white font-bold">Detail Izin</p>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="white"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
                 </div>
-                <div className="bg-white w-full border p-2">
+                <div className="bg-white w-full border p-2 rounded-b-md">
                   <div className="flex flex-row gap-2">
                     <div className="bg-black w-24 h-24" />
                     <div>
@@ -121,10 +148,22 @@ const EmblaCarousel = ({ slides }) => {
               </>
             ) : (
               <>
-                <div className="bg-custom-blue rounded-t-md p-2">
+                <div className="bg-custom-blue rounded-t-md p-2 flex justify-between items-center">
                   <p className="text-white font-bold">Detail Cuti</p>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="white"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
                 </div>
-                <div className="bg-white w-full border p-2">
+                <div className="bg-white w-full border p-2 rounded-b-md">
                   <div>
                     <div>
                       <div>
@@ -167,8 +206,8 @@ const EmblaCarousel = ({ slides }) => {
       </div>
 
       <div className="w-full pt-20 h-full overflow-hidden">
-        <div className="absolute top-14 w-full z-10 bg-custom-jetBlack h-8">
-          <div className="flex items-center ">
+        <div className="absolute top-14 w-full z-10 bg-custom-jetBlack h-10">
+          <div className="flex items-center mt-3">
             <button className="w-full" onClick={() => scrollTo(0)}>
               <p className="text-white font-bold">Izin</p>
             </button>

@@ -111,7 +111,10 @@ const PengajuanIzin = () => {
         </div>
       </div>
       <div className="fixed bottom-0 w-full p-4 ">
-        <button className="bg-custom-blue w-full h-12 rounded-md">
+        <button
+          className="bg-custom-blue w-full h-12 rounded-md"
+          onClick={() => router.back()}
+        >
           <p className="text-s font-bold text-white">Ajukan</p>
         </button>
       </div>

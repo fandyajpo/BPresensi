@@ -1,6 +1,7 @@
 //17 februari 2022
 import Header from "components/header";
 import Layout from "components/layout";
+import RekapStatis from "components/rekapStatistic";
 import { useState, useEffect } from "react";
 const Rekap = () => {
   const [currentDate, setCurrentDate] = useState("jan");
@@ -11,8 +12,8 @@ const Rekap = () => {
     <>
       <Header leftTitle={"Rekap Satu Semester"} />
       <div className="w-full h-full bg-custom-sky px-4 space-y-4 pt-20 pb-28">
-        <div>
-          <div className="w-full h-64 bg-white"></div>
+        <div className="bg-white rounded-md">
+          <RekapStatis />
         </div>
         <div>
           <div className="flex flex-row items-center bg-white shadow-md justify-center rounded-md p-1">

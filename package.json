@@ -2,7 +2,7 @@
   "name": "b-edu",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 9038",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -13,10 +13,14 @@
     "@tailwindcss/line-clamp": "^0.3.1",
     "@tailwindcss/typography": "^0.5.1",
     "@use-gesture/react": "^10.2.6",
+    "@vercel/fetch": "^6.1.1",
+    "chart.js": "^3.7.1",
     "embla-carousel-react": "^6.2.0",
     "next": "^12.0.9",
+    "next-iron-session": "^4.2.0",
     "nprogress": "^0.2.0",
     "react": "17.0.2",
+    "react-chartjs-2": "^4.0.1",
     "react-dom": "17.0.2",
     "react-spring": "^9.4.2",
     "swr": "^1.2.1"

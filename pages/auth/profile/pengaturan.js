@@ -27,10 +27,10 @@ const Pengaturan = () => {
         }
       />
       <div className="pt-20 px-4 bg-custom-pewter h-screen w-full">
-        <div className="space-y-2">
+        <div className="space-y-4">
           <div>
             <p className="text-s font-bold">Umum</p>
-            <div className="space-y-2 py-2">
+            <div className="space-y-4 py-2">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-row items-center gap-2">
                   <div>
@@ -53,9 +53,10 @@ const Pengaturan = () => {
                     <p className="text-s">Notification</p>
                   </div>
                 </div>
-                <div>
+                <label className="switch">
                   <input type="checkbox" />
-                </div>
+                  <span className="slider round"></span>
+                </label>
               </div>
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-row items-center gap-2">
@@ -76,12 +77,13 @@ const Pengaturan = () => {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-s">Notification</p>
+                    <p className="text-s">Update Terbaru</p>
                   </div>
                 </div>
-                <div>
+                <label className="switch">
                   <input type="checkbox" />
-                </div>
+                  <span className="slider round"></span>
+                </label>
               </div>
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-row items-center gap-2">
@@ -102,18 +104,19 @@ const Pengaturan = () => {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-s">Notification</p>
+                    <p className="text-s">Perubahan Privasi</p>
                   </div>
                 </div>
-                <div>
+                <label className="switch">
                   <input type="checkbox" />
-                </div>
+                  <span className="slider round"></span>
+                </label>
               </div>
             </div>
           </div>
           <div>
             <p className="text-s font-bold">Info Lainnya</p>
-            <div className="space-y-2 py-2">
+            <div className="space-y-4 py-2">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-row items-center gap-2">
                   <div>
@@ -133,7 +136,7 @@ const Pengaturan = () => {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-s">Notification</p>
+                    <p className="text-s">Syarat dan Ketentuan</p>
                   </div>
                 </div>
               </div>
@@ -156,7 +159,7 @@ const Pengaturan = () => {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-s">Notification</p>
+                    <p className="text-s">Kebijakan Privasi</p>
                   </div>
                 </div>
               </div>
@@ -179,13 +182,18 @@ const Pengaturan = () => {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-s">Notification</p>
+                    <p className="text-s">Beri Kami Nilai</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div className="fixed bottom-0 bg-black w-full h-12">
+        <p className="text-white text-s text-center py-2 font-bold">
+          Versi 200.5XD
+        </p>
       </div>
     </>
   );

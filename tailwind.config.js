@@ -31,8 +31,10 @@ const themeConstants = {
 module.exports = {
   mode: "jit",
   purge: [
+    "./assets/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
+    "./lib/**/*.{js,ts,jsx,tsx}",
     "./context/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: false, // or 'media' or 'class'
@@ -44,6 +46,7 @@ module.exports = {
         pewter: "#DBF5F0",
         yellower: "#FAD02C",
         jetBlack: "#282120",
+        bluebi: "#36B8CB",
         //DIVIDE
         sky: "#cfdfff",
         red: "#FC4041",

@@ -3,42 +3,179 @@ import { useRouter } from "next/router";
 const Navbar = () => {
   const router = useRouter();
   return (
-    <div className="fixed bottom-0 w-full h-20 bg-opacity-30 bg-custom-bg backdrop-filter backdrop-blur-2xl">
-      <div className="w-full flex flex-row items-center justify-around h-full">
+    <div className='fixed bottom-0 w-full h-20 bg-opacity-30 bg-custom-bg backdrop-filter backdrop-blur-2xl'>
+      <div className='w-full flex flex-row items-center justify-around h-full'>
         <button
-          className="flex flex-col items-center"
+          className='flex flex-col items-center'
+          disabled={router.pathname === "/auth/home"}
           onClick={() => router.push("/auth/home")}
         >
-          <div className="w-8 h-8 bg-blue-500 rounded-md"></div>
-          <p className="text-1xs">Home</p>
+          <svg
+            width='32'
+            height='32'
+            viewBox='0 0 32 32'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path
+              d='M25.0001 13H7.00006C5.89549 13 5.00006 13.8954 5.00006 15V27C5.00006 28.1046 5.89549 29 7.00006 29H25.0001C26.1046 29 27.0001 28.1046 27.0001 27V15C27.0001 13.8954 26.1046 13 25.0001 13Z'
+              fill={`${
+                router.pathname === "/auth/home" ? "#94D6E0" : "#D5D7D8"
+              }`}
+            />
+            <path
+              d='M12.6667 29.0002V20.3335H19.3334V24.6668V29.0002'
+              stroke='white'
+              strokeWidth='2.66667'
+              strokeLinejoin='round'
+            />
+            <path
+              d='M2.66669 14.6667L6.00002 12L16 4L26 12L29.3334 14.6667H2.66669Z'
+              fill={`${
+                router.pathname === "/auth/home" ? "#36B8CB" : "#A4A4A4"
+              }`}
+            />
+            <path
+              d='M6.00002 12L2.66669 14.6667M2.66669 14.6667L16 4L29.3334 14.6667L26 12M2.66669 14.6667H29.5001'
+              stroke={`${
+                router.pathname === "/auth/home" ? "#36B8CB" : "#A4A4A4"
+              }`}
+              strokeWidth='2.66667'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+            />
+          </svg>
+
+          <p className='text-1xs'>Home</p>
         </button>
         <button
-          className="flex flex-col items-center"
+          className='flex flex-col items-center'
           onClick={() => router.push("/auth/jadwal")}
         >
-          <div className="w-8 h-8 bg-blue-500 rounded-md"></div>
-          <p className="text-1xs">Jadwal</p>
+          <svg
+            width='32'
+            height='32'
+            viewBox='0 0 32 32'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path
+              opacity='0.5'
+              d='M29.3334 13.3332H2.66669V25.3332C2.66669 26.394 3.08811 27.4115 3.83826 28.1616C4.58841 28.9117 5.60582 29.3332 6.66669 29.3332H25.3334C26.3942 29.3332 27.4116 28.9117 28.1618 28.1616C28.9119 27.4115 29.3334 26.394 29.3334 25.3332V13.3332ZM9.33335 10.6665C8.97973 10.6665 8.64059 10.526 8.39054 10.276C8.1405 10.0259 8.00002 9.68679 8.00002 9.33317V3.99984C8.00002 3.64622 8.1405 3.30708 8.39054 3.05703C8.64059 2.80698 8.97973 2.6665 9.33335 2.6665C9.68698 2.6665 10.0261 2.80698 10.2762 3.05703C10.5262 3.30708 10.6667 3.64622 10.6667 3.99984V9.33317C10.6667 9.68679 10.5262 10.0259 10.2762 10.276C10.0261 10.526 9.68698 10.6665 9.33335 10.6665ZM22.6667 10.6665C22.3131 10.6665 21.9739 10.526 21.7239 10.276C21.4738 10.0259 21.3334 9.68679 21.3334 9.33317V3.99984C21.3334 3.64622 21.4738 3.30708 21.7239 3.05703C21.9739 2.80698 22.3131 2.6665 22.6667 2.6665C23.0203 2.6665 23.3594 2.80698 23.6095 3.05703C23.8595 3.30708 24 3.64622 24 3.99984V9.33317C24 9.68679 23.8595 10.0259 23.6095 10.276C23.3594 10.526 23.0203 10.6665 22.6667 10.6665Z'
+              fill={`${
+                router.pathname === "/auth/jadwal" ? "#94D6E0" : "#B5B5B5"
+              }`}
+            />
+            <path
+              d='M25.3334 5.3335H24V9.3335C24 9.68712 23.8595 10.0263 23.6095 10.2763C23.3594 10.5264 23.0203 10.6668 22.6667 10.6668C22.3131 10.6668 21.9739 10.5264 21.7239 10.2763C21.4738 10.0263 21.3334 9.68712 21.3334 9.3335V5.3335H10.6667V9.3335C10.6667 9.68712 10.5262 10.0263 10.2762 10.2763C10.0261 10.5264 9.68698 10.6668 9.33335 10.6668C8.97973 10.6668 8.64059 10.5264 8.39054 10.2763C8.1405 10.0263 8.00002 9.68712 8.00002 9.3335V5.3335H6.66669C5.60582 5.3335 4.58841 5.75492 3.83826 6.50507C3.08811 7.25521 2.66669 8.27263 2.66669 9.3335V13.3335H29.3334V9.3335C29.3334 8.27263 28.9119 7.25521 28.1618 6.50507C27.4116 5.75492 26.3942 5.3335 25.3334 5.3335Z'
+              fill={`${
+                router.pathname === "/auth/jadwal" ? "#36B8CB" : "#A4A4A4"
+              }`}
+            />
+          </svg>
+
+          <p className='text-1xs'>Jadwal</p>
         </button>
         <button
-          className="flex flex-col items-center"
+          className='flex flex-col items-center'
           onClick={() => router.push("/auth/riwayat")}
         >
-          <div className="w-8 h-8 bg-blue-500 rounded-md"></div>
-          <p className="text-1xs">Riwayat</p>
+          <svg
+            width='32'
+            height='32'
+            viewBox='0 0 32 32'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path
+              opacity='0.5'
+              d='M5.33331 3.99984C5.33331 3.26346 5.93027 2.6665 6.66665 2.6665H20L26.6666 9.33317V27.9998C26.6666 28.7362 26.0697 29.3332 25.3333 29.3332H6.66665C5.93027 29.3332 5.33331 28.7362 5.33331 27.9998V3.99984Z'
+              fill={`${
+                router.pathname === "/auth/riwayat" ? "#94D6E0" : "#B5B5B5"
+              }`}
+            />
+            <path
+              d='M10.6666 13.333H21.3333'
+              stroke={`${
+                router.pathname === "/auth/riwayat" ? "#36B8CB" : "#A4A4A4"
+              }`}
+              strokeWidth='2.66667'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+            />
+            <path
+              d='M10.6666 18.6665H21.3333'
+              stroke={`${
+                router.pathname === "/auth/riwayat" ? "#36B8CB" : "#A4A4A4"
+              }`}
+              strokeWidth='2.66667'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+            />
+          </svg>
+
+          <p className='text-1xs'>Riwayat</p>
         </button>
         <button
-          className="flex flex-col items-center"
+          className='flex flex-col items-center'
           onClick={() => router.push("/auth/rekap", "/auth/rekap")}
         >
-          <div className="w-8 h-8 bg-blue-500 rounded-md"></div>
-          <p className="text-1xs">Rekap</p>
+          <svg
+            width='32'
+            height='32'
+            viewBox='0 0 32 32'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path
+              opacity='0.5'
+              d='M6.66669 25.3332H25.3334V6.6665H6.66669V25.3332ZM19.64 9.53317C19.9067 9.2665 20.32 9.2665 20.5867 9.53317L22.4667 11.4132C22.7334 11.6798 22.7334 12.0932 22.4667 12.3598L21.0534 13.7732L18.2267 10.9465L19.64 9.53317ZM9.33335 19.8132L17.28 11.8665L20.1067 14.6932L12.1334 22.6665H9.33335V19.8132Z'
+              fill={`${
+                router.pathname === "/auth/rekap" ? "#94D6E0" : "#B5B5B5"
+              }`}
+            />
+            <path
+              opacity='0.5'
+              d='M25.3333 4.00016H19.76C19.2 2.4535 17.7333 1.3335 16 1.3335C14.2667 1.3335 12.8 2.4535 12.24 4.00016H6.66667C5.2 4.00016 4 5.20016 4 6.66683V25.3335C4 26.8002 5.2 28.0002 6.66667 28.0002H25.3333C26.8 28.0002 28 26.8002 28 25.3335V6.66683C28 5.20016 26.8 4.00016 25.3333 4.00016ZM16 3.66683C16.5467 3.66683 17 4.12016 17 4.66683C17 5.2135 16.5467 5.66683 16 5.66683C15.4533 5.66683 15 5.2135 15 4.66683C15 4.12016 15.4533 3.66683 16 3.66683ZM25.3333 25.3335H6.66667V6.66683H25.3333V25.3335Z'
+              fill={`${
+                router.pathname === "/auth/rekap" ? "#94D6E0" : "#B5B5B5"
+              }`}
+            />
+            <path
+              d='M20.1066 14.7068L17.28 11.8802L9.33331 19.8135V22.6668H12.1333L20.1066 14.7068ZM22.4666 12.3602C22.7333 12.0935 22.7333 11.6802 22.4666 11.4135L20.5866 9.5335C20.32 9.26683 19.9066 9.26683 19.64 9.5335L18.2266 10.9468L21.0533 13.7735L22.4666 12.3602Z'
+              fill={`${
+                router.pathname === "/auth/rekap" ? "#36B8CB" : "#A4A4A4"
+              }`}
+            />
+          </svg>
+          <p className='text-1xs'>Rekap</p>
         </button>
         <button
-          className="flex flex-col items-center"
+          className='flex flex-col items-center'
           onClick={() => router.push("/auth/profile")}
         >
-          <div className="w-8 h-8 bg-blue-500 rounded-md"></div>
-          <p className="text-1xs">Profile</p>
+          <svg
+            width='32'
+            height='32'
+            viewBox='0 0 32 32'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path
+              d='M27.92 29.3334H4.07999C3.89276 29.3334 3.70764 29.2939 3.53667 29.2176C3.36571 29.1413 3.21273 29.0298 3.08771 28.8904C2.96268 28.7511 2.86841 28.587 2.81102 28.4087C2.75364 28.2305 2.73444 28.0422 2.75466 27.8561C3.11647 24.5962 4.66774 21.5842 7.11155 19.3966C9.55537 17.2091 12.7201 15.9995 16 15.9995C19.2799 15.9995 22.4446 17.2091 24.8884 19.3966C27.3322 21.5842 28.8835 24.5962 29.2453 27.8561C29.2655 28.0422 29.2463 28.2305 29.189 28.4087C29.1316 28.587 29.0373 28.7511 28.9123 28.8904C28.7872 29.0298 28.6343 29.1413 28.4633 29.2176C28.2923 29.2939 28.1072 29.3334 27.92 29.3334Z'
+              fill={`${
+                router.pathname === "/auth/profile" ? "#94D6E0" : "#D5D7D8"
+              }`}
+            />
+            <path
+              d='M15.9933 18.6665C14.4111 18.6665 12.8644 18.1973 11.5488 17.3183C10.2332 16.4392 9.20779 15.1898 8.60228 13.728C7.99678 12.2662 7.83836 10.6576 8.14704 9.10579C8.45572 7.55394 9.21765 6.12847 10.3365 5.00965C11.4553 3.89083 12.8808 3.12891 14.4326 2.82023C15.9844 2.51154 17.593 2.66997 19.0548 3.27547C20.5166 3.88097 21.766 4.90635 22.6451 6.22195C23.5241 7.53754 23.9933 9.08426 23.9933 10.6665C23.9909 12.7875 23.1472 14.8209 21.6474 16.3206C20.1477 17.8204 18.1143 18.664 15.9933 18.6665Z'
+              fill={`${
+                router.pathname === "/auth/profile" ? "#36B8CB" : "#A4A4A4"
+              }`}
+            />
+          </svg>
+
+          <p className='text-1xs'>Profile</p>
         </button>
       </div>
     </div>
