@@ -42,6 +42,7 @@ module.exports = {
     colors: {
       ...colors,
       custom: {
+        skensaBlue: "#2E4F74",
         cream: "#F8EFE4",
         pewter: "#DBF5F0",
         yellower: "#FAD02C",

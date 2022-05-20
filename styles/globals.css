@@ -187,8 +187,7 @@ input:checked + .slider:before {
 }
 
 .embla__dot.is-selected:after {
-  background-color: #00ffc8;
-  opacity: 1;
+  background-color: #2E4F74;
 }
 
 /* SWITCH TOGGLE */

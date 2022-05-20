@@ -1,9 +1,6 @@
 import { useState } from "react";
 
-const User_activity = ({ dataFetchFromHome }) => {
-  const { jumlah_jam_lembur, jumlah_hari_lembur, jumlah_hari_lembur_nasional } =
-    dataFetchFromHome;
-
+const User_activity = () => {
   const [activityType, setActivityType] = useState(false);
   return (
     <div>
@@ -14,23 +11,23 @@ const User_activity = ({ dataFetchFromHome }) => {
         <div className='py-2 space-x-2'>
           <button
             onClick={() => setActivityType(false)}
-            className={`rounded-full ${
+            className={`rounded-full shadow-md ${
               !activityType
-                ? "border-2 border-custom-bluebi bg-custom-bluebi text-white"
+                ? "border-2 border-blue-200 bg-custom-skensaBlue text-white"
                 : "border-2  bg-white"
             }`}
           >
-            <p className='text-sm py-1 px-4'>Lembur</p>
+            <p className='text-sm py-1 px-4'>Masuk</p>
           </button>
           <button
             onClick={() => setActivityType(true)}
-            className={`rounded-full ${
+            className={`rounded-full shadow-md ${
               activityType
-                ? "border-2 border-custom-bluebi bg-custom-bluebi text-white"
+                ? "border-2 border-blue-200 bg-custom-skensaBlue text-white"
                 : "border-2  bg-white"
             }`}
           >
-            <p className='text-sm py-1 px-4'>Izin dan Cuti</p>
+            <p className='text-sm py-1 px-4'>Izin dan Sakit</p>
           </button>
         </div>
       </div>
@@ -51,7 +48,7 @@ const User_activity = ({ dataFetchFromHome }) => {
           <div className='snap-start shrink-0 first:pl-4'>
             <div className='w-64 h-28 bg-white rounded-md p-2 flex flex-row items-center justify-between pr-6'>
               <div>
-                <p className='text-md font-bold'>Total Cuti</p>
+                <p className='text-md font-bold'>Total Sakit</p>
                 <p className='text-xs w-32 text-custom-textGray'>
                   Jumlah Aktivitas Cuti Anda
                 </p>
@@ -66,37 +63,24 @@ const User_activity = ({ dataFetchFromHome }) => {
           <div className='snap-start shrink-0  last:pr-4'>
             <div className='w-64 h-28 bg-white rounded-md p-2 flex flex-row items-center justify-between pr-6'>
               <div>
-                <p className='text-md font-bold'>Lembur Jam Kerja</p>
+                <p className='text-md font-bold'>Masuk</p>
                 <p className='text-xs w-32 text-custom-textGray'>
                   Jumlah Lembur Jam Kerja
                 </p>
-                <p className='text-xl font-bold'>{jumlah_jam_lembur}</p>
+                <p className='text-xl font-bold'>0</p>
               </div>
               <div className='bg-custom-blue h-12 w-12 rounded-full'></div>
             </div>
           </div>
-          <div className='snap-start shrink-0 first:pl-4 last:pr-4'>
-            <div className='w-64 h-28 bg-white rounded-md p-2 flex flex-row items-center justify-between pr-6'>
-              <div>
-                <p className='text-md font-bold'>Lembur Hari Kerja</p>
-                <p className='text-xs w-32 text-custom-textGray'>
-                  Jumlah Lembur Jam Kerja
-                </p>
-                <p className='text-xl font-bold'>{jumlah_hari_lembur}</p>
-              </div>
-              <div className='bg-custom-blue h-12 w-12 rounded-full'></div>
-            </div>
-          </div>
+
           <div className='snap-start shrink-0 first:pl-4'>
             <div className='w-64 h-28 bg-white rounded-md p-2 flex flex-row items-center justify-between pr-6'>
               <div>
-                <p className='text-md font-bold'>Lembur Jam Kerja</p>
+                <p className='text-md font-bold'>Terlambat</p>
                 <p className='text-xs w-32 text-custom-textGray'>
                   Lembur Libur Nasional
                 </p>
-                <p className='text-xl font-bold'>
-                  {jumlah_hari_lembur_nasional}
-                </p>
+                <p className='text-xl font-bold'>0</p>
               </div>
               <div className='bg-custom-blue h-12 w-12 rounded-full'></div>
             </div>

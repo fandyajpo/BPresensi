@@ -10,14 +10,12 @@ import {
 
 const FormLogin = (props, ref) => {
   const router = useRouter();
-
   const [loginField, setLoginField] = useState({
     url: "login",
     username: "",
     password: "",
   });
   const { url, method, username, password } = loginField;
-
   const [p, setP] = useState(false);
 
   const [swrKey, setSwrKey] = useState("/api/open");
@@ -25,24 +23,18 @@ const FormLogin = (props, ref) => {
   const [err, setErr] = useState("");
 
   const { data, error } = useSWR(shouldFetch ? [swrKey, loginField] : null);
-
   useEffect(() => {
     if (data || error) {
       setShouldFetch(false);
-      if (error) {
-        setErr(error.info);
-      }
-      if (data) {
-        return router.push("/auth/home");
-      }
+      if (error) setErr(error.info);
+      if (data) return router.push("/auth/home");
     }
   }, [shouldFetch, data, error, router]);
 
   useEffect(() => {
-    if (url && method === "logout" && swrKey === "/api/closed") {
+    if (url && method === "logout" && swrKey === "/api/closed")
       setShouldFetch(true);
-    }
-  }, [swrKey]);
+  }, [method, swrKey, url]);
 
   return (
     <div className='w-full h-full'>

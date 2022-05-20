@@ -1,26 +1,8 @@
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import { useState } from "react";
-const User_statistic = ({ dataFetchFromHome }) => {
+const User_statistic = ({}) => {
   const router = useRouter();
-  // console.table(dataFetchFromHome);
-
-  const { jumlah_hadir, jumlah_terlambat, jumlah_tidak_hadir, jumlah_izin } =
-    dataFetchFromHome;
-
-  const [shouldFetch, setShouldFetch] = useState(true);
-
-  const [statistic, setStatistic] = useState({
-    url: "statistic",
-  });
-
-  const { url } = statistic;
-
-  const { data, error } = useSWR(
-    shouldFetch ? ["/api/closed", statistic] : null
-  );
-
-  console.log("DATA ADA GAKSIH?", data);
 
   return (
     <div>
@@ -45,21 +27,21 @@ const User_statistic = ({ dataFetchFromHome }) => {
           <div className='flex flex-row divide-x w-full justify-between'>
             <div className='w-2/4 px-2 flex flex-row items-center justify-between'>
               <p className='text-xs'>Hadir</p>
-              <p className='text-2xl font-bold'>{jumlah_hadir}</p>
+              <p className='text-2xl font-bold'>{/* {jumlah_hadir} */}</p>
             </div>
             <div className='w-2/4 px-2 flex flex-row items-center justify-between'>
-              <p className='text-xs'>Tidak Hadir</p>
-              <p className='text-2xl font-bold'>{jumlah_tidak_hadir}</p>
+              <p className='text-xs'>Terlambat</p>
+              <p className='text-2xl font-bold'>{/* {jumlah_tidak_hadir} */}</p>
             </div>
           </div>
           <div className='flex flex-row divide-x w-full justify-between pt-2'>
             <div className='w-2/4 px-2 flex flex-row items-center justify-between'>
-              <p className='text-xs'>Terlambat</p>
-              <p className='text-2xl font-bold'>{jumlah_terlambat}</p>
+              <p className='text-xs'>Sakit</p>
+              <p className='text-2xl font-bold'>{/* {jumlah_terlambat} */}</p>
             </div>
             <div className='w-2/4 px-2 flex flex-row items-center justify-between'>
-              <p className='text-xs'>Izin</p>
-              <p className='text-2xl font-bold'>{jumlah_izin}</p>
+              <p className='text-xs'>Tanpa Keterangan</p>
+              <p className='text-2xl font-bold'>{/* {jumlah_izin} */}</p>
             </div>
           </div>
         </div>

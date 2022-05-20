@@ -2,7 +2,7 @@ import "styles/globals.css";
 import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 
 //CONTEXT
 import { PresenceType } from "context/presenceType";
@@ -21,10 +21,10 @@ Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
 export function reportWebVitals(metric) {
-  console.log(metric);
+  // console.log(metric);
 }
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, props }) {
   const router = useRouter();
   const Layout = Component.layout || (({ children }) => <>{children}</>);
   //CONTEXT STATE
@@ -61,7 +61,8 @@ function MyApp({ Component, pageProps }) {
         }
       }
     } catch (error) {
-      alert(error);
+      // alert(error);
+      // console.log("error in app js");
     }
   };
 
@@ -93,26 +94,27 @@ function MyApp({ Component, pageProps }) {
           href='https://unpkg.com/nprogress@0.2.0/nprogress.css'
         />
       </Head>
-      <SWRConfig
-        value={{
-          fetcher: fetch,
-          revalidateIfStale: false,
-          revalidateOnFocus: false,
-          revalidateOnReconnect: false,
-        }}
-      >
-        <PresentContent.Provider value={value}>
-          <UserLogged.Provider value={value}>
-            <BackType.Provider value={value}>
-              <PresenceType.Provider value={value}>
-                <Layout>
+
+      <PresentContent.Provider value={value}>
+        <UserLogged.Provider value={value}>
+          <BackType.Provider value={value}>
+            <PresenceType.Provider value={value}>
+              <Layout>
+                <SWRConfig
+                  value={{
+                    fetcher: fetch,
+                    revalidateIfStale: false,
+                    revalidateOnFocus: false,
+                    revalidateOnReconnect: false,
+                  }}
+                >
                   <Component {...pageProps} />
-                </Layout>
-              </PresenceType.Provider>
-            </BackType.Provider>
-          </UserLogged.Provider>
-        </PresentContent.Provider>
-      </SWRConfig>
+                </SWRConfig>
+              </Layout>
+            </PresenceType.Provider>
+          </BackType.Provider>
+        </UserLogged.Provider>
+      </PresentContent.Provider>
     </>
   );
 }

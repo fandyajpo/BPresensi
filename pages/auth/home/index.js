@@ -7,17 +7,15 @@ import { PresenceType } from "context/presenceType";
 import withSession from "lib/session";
 //STATE
 import { useRouter } from "next/router";
-import { useState, useEffect, useContext } from "react";
-import { animated, useSpring, config } from "react-spring";
+import { useState, useContext } from "react";
 
 //USER_COMPONENTS
+import Header from "components/header";
 import UserProfile from "components/home/user_profile";
 import UserCategory from "components/home/user_category";
 import UserPresent from "components/home/user_present";
 import UserActivity from "components/home/user_activity";
 import UserStatistic from "components/home/user_statistic";
-
-import Header from "components/header";
 import useSWR from "swr";
 
 const Home = () => {
@@ -26,116 +24,40 @@ const Home = () => {
   const [click, setClick] = useState(false);
 
   //FETCHING TOD
-  const [shouldFetch, setShouldFetch] = useState(true);
+  // const [shouldFetch, setShouldFetch] = useState(true);
 
-  const [profile, setProfile] = useState({
-    url: "userdetail",
-  });
-  const { url } = profile;
+  // // const [profile, setProfile] = useState({
+  // //   url: "userdetail",
+  // // });
+  // // const { url } = profile;
 
-  const [err, setErr] = useState("");
-  const { data, error } = useSWR(shouldFetch ? ["/api/closed", profile] : null);
-  const dataFetchFromHome = data;
-  const [scrolling, setScrolling] = useState(false);
-  const NavbarAnimation = (event) => {
-    if (window.scrollY > 70) {
-      setScrolling(true);
-    } else {
-      setScrolling(false);
-    }
-  };
-  useEffect(() => {
-    window.addEventListener("scroll", NavbarAnimation);
-  }, []);
+  // // const [err, setErr] = useState("");
+  // // const { data, error } = useSWR(shouldFetch ? ["/api/closed", profile] : null);
+
+  // // useEffect(() => {
+  // //   console.log("USER PROFILE", data);
+  // // }, [data]);
 
   const [presentPic, setPresentPic] = useState(false);
   const handleOpenPresent = () => setPresentPic(true);
   const handleClosePresent = () => setPresentPic(false);
-  const PresentPicture = useSpring({
-    y: presentPic ? 0 : 1000,
-    scale: presentPic ? 1 : 0,
-    config: {
-      friction: 15,
-      precision: 1,
-    },
-  });
 
-  const LoadScreen = useSpring({
-    from: {
-      y: 0,
-    },
-    to: {
-      opacity: data ? 0 : 1,
-      y: data ? 1000 : 0,
-    },
-  });
-
-  const Spin = useSpring({
-    loop: true,
-    from: { rotateZ: 0 },
-    to: { rotateZ: 360 },
-    config: {
-      duration: 10000,
-    },
-  });
-  const Ball = useSpring({
-    loop: true,
-    from: { rotateZ: 0 },
-    to: { rotateZ: 360 },
-    config: {
-      duration: 5000,
-    },
-  });
-
-  if (!data)
-    return (
-      <animated.div
-        style={LoadScreen}
-        className='absolute bg-transparent bg-opacity-30 z-50 w-full h-full flex items-center justify-center backdrop-filter backdrop-blur-sm'
-      >
-        <animated.div
-          style={Spin}
-          className='border-r-4 border-blue-500 rounded-full'
-        >
-          {/* <div className='w-20 h-20 border border-blue-400 rounded-full'></div> */}
-          <animated.div
-            style={Ball}
-            className='w-24 h-24 flex items-center justify-center border-l-4 rounded-full border-custom-bluebi'
-          >
-            <div className='w-20 h-20 border-r border-violet-500 rounded-full p-4'></div>
-          </animated.div>
-        </animated.div>
-      </animated.div>
-    );
+  // if (!data)
+  //   return (
+  //     <animated.div className='absolute bg-transparent bg-opacity-30 z-50 w-full h-full flex items-center justify-center backdrop-filter backdrop-blur-sm'>
+  //       <animated.div className='border-r-4 border-blue-500 rounded-full'>
+  //         <div className='w-20 h-20 border border-blue-400 rounded-full'></div>
+  //         <animated.div className='w-24 h-24 flex items-center justify-center border-l-4 rounded-full border-custom-bluebi'>
+  //           <div className='w-20 h-20 border-r border-violet-500 rounded-full p-4'></div>
+  //         </animated.div>
+  //       </animated.div>
+  //     </animated.div>
+  //   );
 
   return (
-    <div className='w-full h-full bg-white'>
-      <Header
-        rightAction={() =>
-          router.push("home/notification", "home/notification")
-        }
-        rightIcon={
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            className='h-8 w-8'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='white'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              strokeWidth={2}
-              d='M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9'
-            />
-          </svg>
-        }
-      />
-      <div
-        className={`${
-          presentPic ? "" : "hidden"
-        } bg-black bg-opacity-90 fixed z-30 w-full h-full`}
-      ></div>
+    <div className='w-full h-full bg-custom-skensaBlue'>
+      {/* <Header /> */}
+      {/* <div className='fixed bg-custom-bluebi w-full h-44'></div> */}
       <div className={`${presentPic ? "" : "hidden"} fixed z-40 top-4 right-4`}>
         <button onClick={handleClosePresent}>
           <svg
@@ -152,43 +74,35 @@ const Home = () => {
           </svg>
         </button>
       </div>
-      <animated.div
-        style={PresentPicture}
-        className='fixed w-full h-full z-30 bg-opacity-90 flex items-center justify-center'
-      >
-        <div className='bg-pink-300 w-72 h-72 rounded-xl'></div>
-      </animated.div>
-
-      <div
-        className={`fixed top-0 z-0 ${
-          scrolling
-            ? "bg-gradient-to-t from-white via-custom-bluebi to-custom-bluebi h-0"
-            : "bg-gradient-to-b from-custom-bluebi via-custom-bluebi to-white h-64"
-        } duration-1000 w-full min-h-fit outline-none`}
-      />
-
-      <div className='pt-20 pb-32 w-full h-full bg-white duration-500 outline-none'>
+      <div className='w-full z-10'>
+        <UserPresent
+          handleOpenPresent={handleOpenPresent}
+          presentPic={presentPic}
+          setPresentPic={setPresentPic}
+        />
+      </div>
+      <div className='pt-4 pb-32 w-full h-full bg-white rounded-3xl duration-500 outline-none'>
         <div className='px-4 space-y-4'>
-          <UserProfile
-            dataFetchFromHome={dataFetchFromHome}
+          {/* <UserProfile
+            // dataFetchFromHome={dataFetchFromHome}
             handleOpenPresent={handleOpenPresent}
             presentPic={presentPic}
             setPresentPic={setPresentPic}
-          />
+          /> */}
           <UserCategory
-            dataFetchFromHome={dataFetchFromHome}
-            open={open}
-            close={close}
+            // dataFetchFromHome={dataFetchFromHome}
+            // open={open}
+            // close={close}
             click={click}
             setClick={setClick}
           />
-          <UserPresent
-            handleOpenPresent={handleOpenPresent}
-            presentPic={presentPic}
-            setPresentPic={setPresentPic}
+
+          <UserActivity
+          // dataFetchFromHome={dataFetchFromHome}
           />
-          <UserActivity dataFetchFromHome={dataFetchFromHome} />
-          <UserStatistic dataFetchFromHome={dataFetchFromHome} />
+          <UserStatistic
+          // dataFetchFromHome={dataFetchFromHome}
+          />
         </div>
       </div>
     </div>
@@ -198,22 +112,22 @@ const Home = () => {
 Home.layout = Layout;
 export default Home;
 
-export const getServerSideProps = withSession(async function ({ req, res }) {
-  const user = req.session.get("user");
+// export const getServerSideProps = withSession(async function ({ req, res }) {
+//   const user = req.session.get("user");
 
-  if (!user) {
-    return {
-      redirect: {
-        destination: "/login",
-        permanent: false,
-      },
-    };
-  }
+//   if (!user) {
+//     return {
+//       redirect: {
+//         destination: "/login",
+//         permanent: false,
+//       },
+//     };
+//   }
 
-  return {
-    props: { login: user ? true : false },
-  };
-});
+//   return {
+//     props: { login: user ? true : false },
+//   };
+// });
 
 const Lainnya = () => {
   const router = useRouter();

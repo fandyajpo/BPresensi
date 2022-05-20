@@ -14,8 +14,7 @@ const Akun = () => {
 
   const [changePass, setChangePass] = useState({
     url: "changepassword",
-    password: "",
-    new_password: "",
+    password: currentPass,
   });
 
   const { url, password, new_password } = changePass;

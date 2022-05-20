@@ -1,10 +1,7 @@
-import bgLogin from "public/bg_login.webp";
 import withSession from "lib/session";
-import Image from "next/image";
 import dynamic from "next/dynamic";
-import { login } from "lib/Auth";
-import { useRouter } from "next/router";
-const FormLogin = dynamic(() => import("components/Auth/FormLogin"), {
+
+const FormLogin = dynamic(() => import("components/auth/FormLogin"), {
   ssr: true,
 });
 

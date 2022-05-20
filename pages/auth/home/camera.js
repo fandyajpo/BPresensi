@@ -11,7 +11,7 @@ const Camera = () => {
   const router = useRouter();
   useEffect(() => {
     console.log("PRESENCE TYPE : ", Presence.presence);
-    console.log("", PreContent.presentContent);
+    console.log("INSERT", PreContent.presentContent);
   }, [Presence.presence, PreContent.presentContent]);
 
   const videoRef = useRef(null);
@@ -42,7 +42,8 @@ const Camera = () => {
     "December",
   ];
   const date = new Date();
-  const tanggal = date.getMonth();
+  const currentMonth = date.getMonth();
+  const currentDate = date.getDate();
   const month = newLocal;
 
   const [profile, setProfile] = useState({
@@ -174,27 +175,80 @@ const Camera = () => {
             </div>
           </div>
           <div className='w-4/12 flex items-center justify-center'>
-            <button
-              onClick={(e) => {
-                PreContent.setPresentContent({
-                  url: "kehadiran",
-                  method: "add",
-                  username: "kuntul",
-                  photo_absen: "gila",
-                  jam_datang: `${hours}.${minutes}`,
-                  jam_pulang: "",
-                  tanggal_kehadiran: tanggal,
-                  bulan_kehadiran: `${month[tanggal]}`,
-                  tahun_kehadiran: years,
-                  lokasi_presensi: "jawa",
-                  type_kehadiran:
-                    hours > 8 && minutes > 30 ? "Terlambat" : "Tepat Waktu",
-                  type_presensi: Presence.presence,
-                });
-                router.push("capture", "capture");
-              }}
-              className='bg-white w-14 h-14 rounded-full'
-            />
+            {Presence.presence === "presensi" ? (
+              <button
+                onClick={(e) => {
+                  PreContent.setPresentContent({
+                    url: "absensi",
+                    method: "datang",
+                    username: "fandy",
+                    photo_absen: "gila",
+                    jam_aktivitas: "_",
+                    jam_datang: `${hours}.${minutes}`,
+                    jam_pulang: "_",
+                    tanggal_kehadiran: currentDate,
+                    bulan_kehadiran: `${month[currentMonth]}`,
+                    tahun_kehadiran: years,
+                    lokasi_presensi: "jawa",
+                    type_kehadiran:
+                      hours > 8 && minutes > 30 ? "Terlambat" : "Tepat Waktu",
+                    type_presensi: Presence.presence,
+                  });
+                  router.push("capture", "capture");
+                }}
+                className='bg-white w-14 h-14 rounded-full'
+              />
+            ) : Presence.presence === "mulai-lembur" ||
+              Presence.presence === "istirahat" ||
+              Presence.presence === "istirahat" ||
+              Presence.presence === "selesai-lembur" ||
+              Presence.presence === "kembali-kerja" ? (
+              <button
+                onClick={(e) => {
+                  PreContent.setPresentContent({
+                    url: "absensi",
+                    method: "aktivitas",
+                    username: "fandi",
+                    photo_absen: "gila",
+                    jam_aktivitas: `${hours}.${minutes}`,
+                    jam_datang: "_",
+                    jam_pulang: "_",
+                    tanggal_kehadiran: currentDate,
+                    bulan_kehadiran: `${month[currentMonth]}`,
+                    tahun_kehadiran: years,
+                    lokasi_presensi: "jawa",
+                    type_kehadiran: "_",
+                    type_presensi: Presence.presence,
+                  });
+                  router.push("capture", "capture");
+                }}
+                className='bg-white w-14 h-14 rounded-full'
+              />
+            ) : Presence.presence === "pulang" ? (
+              <button
+                onClick={(e) => {
+                  PreContent.setPresentContent({
+                    url: "absensi",
+                    method: "datang",
+                    username: "fandi",
+                    photo_absen: "gila",
+                    jam_aktivitas: "_",
+                    jam_datang: "_",
+                    jam_pulang: `${hours}.${minutes}`,
+                    tanggal_kehadiran: currentDate,
+                    bulan_kehadiran: `${month[currentMonth]}`,
+                    tahun_kehadiran: years,
+                    lokasi_presensi: "jawa",
+                    type_kehadiran: "_",
+                    type_presensi: Presence.presence,
+                  });
+                  router.push("capture", "capture");
+                }}
+                className='bg-white w-14 h-14 rounded-full'
+              />
+            ) : (
+              ""
+            )}
           </div>
           <div className='w-4/12 flex justify-center items-center'>
             {Presence.presence === "aktivitas-lain" ? (
@@ -217,3 +271,7 @@ const Camera = () => {
 };
 
 export default Camera;
+
+///datang
+
+//pulang

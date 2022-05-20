@@ -7,7 +7,7 @@ const query = async (url, field) => {
     headers: {
       Accept: "application/json, text/plain, */*",
       "Content-Type": "application/json",
-      // 'Authorization': 'Basic '+token,
+      // Authorization: "Basic " + token,
     },
     body: JSON.stringify(field),
   });
@@ -16,7 +16,6 @@ const query = async (url, field) => {
 
 export default withSession(async (req, res) => {
   const user = await req.session.get("user");
-
   try {
     const response = await query(req.body.url, req.body);
     const result = await response.json();

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
-const User_profile = ({ handleOpenPresent, dataFetchFromHome }) => {
-  const { perusahaan, fullname, jabatan } = dataFetchFromHome;
+const User_profile = ({ handleOpenPresent }) => {
   const today = new Date();
   const hours = addZero(today.getHours());
   const minutes = addZero(today.getMinutes());
@@ -12,10 +11,6 @@ const User_profile = ({ handleOpenPresent, dataFetchFromHome }) => {
 
   const current_date = `${hours}.${minutes}`;
 
-  useEffect(() => {
-    console.log("Sekarang Jam", `${hours}.${minutes}`);
-  }, [hours, minutes]);
-
   const [time, setTime] = useState(current_date);
 
   return (
@@ -23,7 +18,7 @@ const User_profile = ({ handleOpenPresent, dataFetchFromHome }) => {
       <div className='py-6 relative flex flex-row items-center justify-between w-full'>
         <div className='relative w-full flex justify-start'>
           <div className='absolute'>
-            <p className='text-md font-bold text-white'>{perusahaan}</p>
+            <p className='text-md font-bold text-white'>{"test"}</p>
           </div>
         </div>
         <div className='relative w-full flex justify-end'>
@@ -39,8 +34,8 @@ const User_profile = ({ handleOpenPresent, dataFetchFromHome }) => {
               <div className='w-14 h-14 bg-custom-black rounded-md' />
             </button>
             <div>
-              <p className='text-sm font-bold'>{fullname}</p>
-              <p className='text-1xs'>{jabatan}</p>
+              <p className='text-sm font-bold'>{"test"}</p>
+              <p className='text-1xs'>{"test"}</p>
             </div>
           </div>
         </div>

@@ -11,17 +11,11 @@ const Header = ({
   middleContent,
   search,
 }) => {
-  const [navColor, setNavColor] = useState("bg-violet-600");
-
-  useEffect(() => {
-    search ? setNavColor("bg-white") : setNavColor("bg-violet-600");
-  }, [search]);
-
   return (
     <div className='w-full overflow-hidden'>
       {middleContent ? (
         <div
-          className={`bg-custom-bluebi duration-500 fixed top-0 w-full h-16 backdrop-filter backdrop-blur-2xl z-10 flex justify-between items-center`}
+          className={`bg-custom-skensaBlue duration-500 fixed top-0 w-full h-16 backdrop-filter backdrop-blur-2xl z-10 flex justify-between items-center`}
         >
           <div className='flex flex-row items-center w-full h-full p-4'>
             {middleContent}
@@ -36,7 +30,7 @@ const Header = ({
         </div>
       ) : (
         <div
-          className={`bg-custom-bluebi duration-500 fixed top-0 w-full h-16 backdrop-filter backdrop-blur-2xl z-10 `}
+          className={`bg-custom-skensaBlue duration-500 fixed top-0 w-full h-16 backdrop-filter backdrop-blur-2xl z-10 `}
         >
           <div className='flex flex-row items-center justify-between w-full h-full px-4 pt-2'>
             <div className='flex flex-row items-center gap-2 w-full'>
@@ -80,4 +74,4 @@ const Header = ({
   );
 };
 
-export default memo(Header);
+export default Header;
